@@ -1160,7 +1160,7 @@ img {
 }
 .course_item {
 	float: left;
-	/* width: 77.5%; */
+	width: 77.5%;
 }
 .course_item ul {
 	margin: 0 -1%;
@@ -1220,29 +1220,25 @@ img {
 	margin-top: 20px;
 }
 .course_hot {
-	/* float: right; */
-	/* width: 20%; */
-	background: #fff;
+	float: right;
+	width: 20%;
+	background: #f6f7f8;
 	height: 80vh;
 	padding: 0; 
 	margin-right: 30px;
 }
 .course_hot_box {
-	/* padding: 0 10px; */
+	padding: 0 10px;
 }
 .course_hot .tit {
 	margin-bottom: 15px;
 }
 .course_hot .tit h3 {
-	/* padding: 0 45px; */
-	/* text-align: center; */
-	border-top: 5px solid #0098e8;
-	font-size: 20px;
-	color: #FFF;
-	background: #0098e8;
-	font-weight: bold;
-	line-height: 55px;
-	padding-left: 26px;
+	font-weight: normal;
+	font-size: 16px;
+	color: #000;
+	line-height: 44px;
+	border-bottom: 1px solid #d8dbde;
 }
 .course_item2{
 	background: #fff;
@@ -1256,6 +1252,25 @@ img {
 	.course_hot{
 		height: auto;
 	}
+}
+.course_hot2 {
+	float: left;
+	width: 25%;
+	background: #fff;
+	height: 80vh;
+	padding: 0; 
+	margin-right: 30px;
+}
+.course_hot2 .tit h3 {
+	/* padding: 0 45px; */
+	/* text-align: center; */
+	border-top: 5px solid #0098e8;
+	font-size: 20px;
+	color: #FFF;
+	background: #0098e8;
+	font-weight: bold;
+	line-height: 55px;
+	padding-left: 26px;
 }
 .course_hot .course_item {
 	float: none;
