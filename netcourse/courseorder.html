@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--[if lt IE 9]>
+    <script type="text/javascript" src="static/js/html5.js"></script>
+    <![endif]-->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title>CPU知识云</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/vue_2.5.13.js"></script>
+		<script type="text/javascript" src="static/js/jquerysession.js"></script>
+		<script type="text/javascript" src="static/js/jquery.params.js"></script>
+		<script type="text/javascript" src="static/js/common.js"></script>
+		<script type="text/javascript" src="static/js/qrcode.js"></script>
+		<link rel="stylesheet" type="text/css" href="static/css/animate.css">
+		<link rel="stylesheet" type="text/css" href="static/css/global.css">
+		<link rel="stylesheet" type="text/css" href="static/css/style.css">
+		<link rel="stylesheet" type="text/css" href="static/css/orderstyle.css">
+		<link rel="stylesheet" type="text/css" href="static/css/owl.carousel.min.css">
+		<script type="text/javascript" src="static/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/js/main.js"></script>
+
+	</head>
+
+	<body>
+		<div id="all">
+			<!-------------------------------------- 头部开始 -------------------------------------->
+			<div class="header">
+				<div class="head" id="head">
+				<div class="wrap"> <span>您好，欢迎访问CPU知识云！</span>
+					<div class="frt">
+						<ul>
+							<li>
+								<a href="popupsignin.html" v-if="!userinfo.nick_name"><span>登录</span></a>
+								<a href="#" v-if="userinfo.nick_name" v-text="userinfo.nick_name"><span></span></a>
+
+							</li>
+							<li>
+								<a href="popupsignin.html?p=1" v-if="!userinfo.nick_name"><span>注册</span></a>
+								<a href="coursecenter.html" v-if="userinfo.nick_name"><span>个人中心</span></a>
+
+							</li>
+							<li>
+
+								<a href="#" onclick="layout()" v-if="userinfo.nick_name"><span>退出</span></a>
+
+							</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+				<div class="head2">
+					<div class="wrap logoBox">
+						<div class="logo flt">
+							<a href="index.html"><img style="height: 70px;" src="static/picture/16.png"></a>
+						</div>
+						<div class="frt tel">
+							<h3>0351-6014519
+</h3>
+							<p>全国咨询热线</p>
+						</div>
+					</div>
+				</div>
+				<div class="menu">
+					<div class="wrap">
+						<ul>
+							<li class='on'>
+							<a href="index.html">首页
+								<label></label>
+							</a>
+						</li>
+
+						<li>
+							<a href="course.html">直击中考·
+								<label style="font-size:10px;">学生版</label>
+							</a>
+						</li>
+						<li>
+							<a href="courseT.html">直击中考·
+								<label style="font-size:10px;">教师版</label>
+							</a>
+						</li>
+						<li>
+							<a href="courseZ.html">直击中考·
+								<label style="font-size:10px;">真题版</label>
+							</a>
+						</li>
+
+						</ul>
+					</div>
+					<div class="menu_wrap"></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<!-------------------------------------- 头部结束 -------------------------------------->
+			<!-------------------------------------- 内容开始 -------------------------------------->
+			<!--class="animated fast" data-animation="fadeInDown"-->
+			<div class="mainer" id="grzx">
+				<div class="page_list">
+					<div class="page page3">
+						<div class="wrap">
+
+							<section class="aui-flexView">
+								<header class="aui-navBar aui-navBar-fixed">
+									<a href="javascript:;" class="aui-navBar-item">
+										<i class="icon icon-return"></i>
+									</a>
+									<div class="aui-center">
+										<span class="aui-center-title">订单详情</span>
+									</div>
+									<a href="javascript:;" class="aui-navBar-item">
+										<i class="icon icon-sys"></i>
+									</a>
+								</header>
+								<section class="aui-scrollView">
+									<div class="aui-flex aui-flex-context">
+										<div class="aui-flex-box">
+											<h2>下单成功</h2>
+											<h3>付款成功后，在<span style="font-size: 15px;">个人中心</span>学习课程</h3>
+										</div>
+										<div class="aui-assemble-img">
+
+										</div>
+									</div>
+
+									<div class="divHeight"></div>
+									<div class="aui-flex">
+										<span style="font-size: 20px;">
+
+											微信扫码支付
+
+										</span>
+										<div  id="qrcode" style="width:200px; height:200px; margin-top:15px;float: left;padding-left: 20px;"></div>
+									</div>
+									<div class="aui-flex b-line">
+
+										<div class="aui-flex-box">
+											<h5>课程列表</h5>
+										</div>
+										<div class="aui-address-arrow"></div>
+									</div>
+									<!--订单列表-->
+									<div v-for="(course, idx) in courselist" :key="idx">
+										<div class="aui-flex aui-flex-four">
+											<div class="aui-flex-add">
+												<img :src="course.image" alt="">
+											</div>
+											<div class="aui-flex-box">
+												<p v-text="course.name"></p>
+												<p class="b-line" style="color:#999"> 共1件</p>
+											</div>
+										</div>
+										<div class="aui-flex aui-flex-four" style="padding-top:0">
+											<div class="aui-flex-box">
+
+												<button class="aui-btn-line" @click="window.location.href ='detail.html?id=' + course.id">课程详情</button>
+											</div>
+										</div>
+									</div>
+									<div class="aui-flex b-line">
+										<div class="aui-flex-box">
+											<h6>需付款: ￥<em v-text="pirce">1</em> <i>(扫码支付)</i></h6>
+										</div>
+									</div>
+									
+									<div class="divHeight"></div>
+									
+								</section>
+							</section>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="ht100"></div>
+					<div class="page page8">
+					<img src="static/picture/bottomBg.jpg" style="width: 100%;"/>
+					</div>
+				</div>
+			</div>
+			<!-------------------------------------- 内容结束 -------------------------------------->
+			<!-------------------------------------- 尾部开始 -------------------------------------->
+			<div class="footer">
+				<div class="foot2">
+					<p>Copyright &copy;2020 山西图联科技信息有限公司 版权所有 </p>
+				</div>
+			</div>
+		</div>
+		<!-------------------------------------- 尾部结束 -------------------------------------->
+
+		<style>
+			dl {
+				margin-bottom: 10px;
+			}
+			
+			dl dt {
+				font-size: 16px;
+				color: #333333;
+				font-family: "microsoft yahei";
+				font-weight: 600;
+				padding: 15px 0px 5px 26px;
+			}
+			
+			dd {
+				font-family: "microsoft yahei", 宋体, Arial, Helvetica;
+				font-size: 12px;
+				color: rgb(51, 51, 51);
+				line-height: 1.5;
+			}
+			
+			dl dd p {
+				padding: 5px 26px;
+				line-height: 1.7!important;
+				margin: 0;
+			}
+			
+			dl dd p a {
+				color: #666666;
+				font-size: 14px;
+				font-family: "microsoft yahei";
+				display: block;
+			}
+			
+			img {
+				border: 0;
+				outline-width: 0px;
+				vertical-align: top;
+			}
+			
+			.cusName {
+				width: 600px;
+				float: left;
+				margin: 10px;
+			}
+			
+			.cusName p {
+				line-height: 40px;
+				height: 40px;
+				font-size: 16px;
+				color: #333;
+				font-family: "microsoft yahei";
+				padding: 0;
+				word-wrap: break-word;
+				overflow: hidden;
+			}
+			
+			.cusName span {
+				line-height: 40px;
+				height: 40px;
+				position: relative;
+				font-size: 14px;
+				color: #666;
+				font-family: "microsoft yahei";
+				display: block;
+				word-wrap: break-word;
+				overflow: hidden;
+			}
+			
+			.cus01 {
+				height: 170px;
+				padding: 0px 20px;
+				border-bottom: 1px solid #000000;
+			}
+			
+			.cusImg {
+				width: 127px;
+				height: 127px;
+				overflow: hidden;
+				margin: 10px;
+				float: left;
+			}
+		</style>
+		<script>
+			var userInfo = {};
+			userInfo.nike_name = "";
+			if($.session.get('user') != undefined) {
+				userInfo = JSON.parse($.session.get('user'));
+			} else {
+				window.location.href = "popupsignin.html";
+			}
+			var pirce = "";
+			var orderCode = "";
+			/*二维码*/
+			var vm = new Vue({
+				el: '#all',
+				data: {
+					userinfo: {},
+					/*item: {},*/
+					courselist: [],
+					study: {},
+					outTradeNo: "",
+				},
+				created: function() {
+					this.getLM();
+				},
+				methods: {
+					getLM: function() {
+						//如果已经登录
+						if(userInfo.nike_name != "") {
+							this.userinfo = userInfo;
+						} else {
+
+						}
+						var cid=$.getUrlParam('cid');
+						/*如果是单个课程*/
+						if(cid!= null && cid!= "other") {
+							$.ajax({
+								url: requestUrl+'/blade-cms/font/categoryDetail', //地址
+								data: {
+									id: cid
+								},
+								dataType: 'json', //数据类型
+								type: 'GET', //类型
+								timeout: 5000, //超时
+								//请求成功
+								success: function(data, status) {
+									vm.courselist.push(data.data);
+									vm.pirce = vm.courselist[0].pirce;
+									makeimg_(0,cid);
+									ifgm(cid);
+									
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									if(textStatus === 'timeout') {
+										console.log("请求超时！");
+									}
+								}
+							})
+						}
+						/*如果是套餐订购*/
+						var cids="";
+						if(cid != null && cid == "other") {
+							$.ajax({
+								url: requestUrl+'/blade-cms/category/gouwuList', //地址
+								data: {
+									userId: userInfo.user_id
+								},
+								dataType: 'json', //数据类型
+								type: 'GET', //类型
+								timeout: 5000, //超时
+								//请求成功
+								success: function(data, status) {
+									console.log(data);
+									vm.courselist = data.data.records;
+									var sumPrice = 0;
+									for(var i = 0; i < data.data.records.length; i++) {
+										sumPrice = sumPrice + parseFloat(data.data.records[i].pirce);
+									cids+=data.data.records[i].id+",";
+									}
+									vm.pirce = sumPrice;
+									makeimg_(1,cids);
+									setTimeout("getStatus('"+data.data.records[0].id+"')", 3000);
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0',
+									'Blade-Auth': 'bearer ' + userInfo.access_token
+
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									if(errorThrown=='Unauthorized'){
+										$.session.remove('user');
+										alert("登录过期，请重新登录！");
+										window.location.href="popupsignin.html";
+									}
+								}
+							})
+
+						}
+						var outTradeNo = ""; //订单号
+						for(var i = 0; i < 6; i++) //6位随机数，用以加在时间戳后面。
+						{
+							outTradeNo += Math.floor(Math.random() * 10);
+						}
+						outTradeNo = new Date().getTime() + outTradeNo; //时间戳，用来生成订单号。
+						this.outTradeNo = outTradeNo;
+						
+					},
+					getDetailHref: function(val) {
+						return 'detail.html?id=' + val
+					}
+				},
+				filters: {
+					getOrderHref: function(val) {
+						return 'courseorder.html?cid=' + val
+					}
+				}
+			});
+			
+			function getStatus(cid) {
+				$.ajax({
+					url: requestUrl+'/blade-cms/order/list', //地址
+					dataType: 'json', //数据类型
+					type: 'get', //类型
+					data: {
+						courseId: cid,
+						userId: userInfo.user_id
+					},
+					timeout: 5000, //超时
+					contentType: 'application/json',
+					//请求成功
+					success: function(data, status) {
+						var list = data.data.records;
+						console.log(data);
+						if(list.length == 0) {
+							setTimeout("getStatus('"+cid+"')", 3000);
+						} else {
+							alert("付款成功！");
+							window.location.href = "coursecenter.html";
+						}
+					},
+					headers: {
+						'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0',
+						'Blade-Auth': 'bearer ' + userInfo.access_token
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if(errorThrown == 'Unauthorized') {
+							$.session.remove('user');
+							alert("没有权限，请重新登录！");
+							window.location.href = "popupsignin.html";
+						}
+					}
+				})
+
+			}
+			function ifgm(cid) {
+				$.ajax({
+					url: requestUrl+'/blade-cms/order/list', //地址
+					dataType: 'json', //数据类型
+					type: 'get', //类型
+					data: {
+						courseId: cid,
+						userId: userInfo.user_id
+					},
+					timeout: 5000, //超时
+					contentType: 'application/json',
+					//请求成功
+					success: function(data, status) {
+						var list = data.data.records;
+						console.log(data);
+						if(list.length == 0) {
+							setTimeout("getStatus('"+cid+"')", 3000);
+						} else {
+							alert("已经购买，无需重复购买！");
+						}
+					},
+					headers: {
+						'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0',
+						'Blade-Auth': 'bearer ' + userInfo.access_token
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						
+						if(errorThrown == 'Unauthorized') {
+							return false;
+							$.session.remove('user');
+							alert("没有权限，请重新登录！");
+							window.location.href = "popupsignin.html";
+						}
+						return false;
+					}
+				})
+
+			}
+			/*生成二维码*/
+			function makeimg_(status,idstr) {
+				console.log(idstr);
+				var qrcode = new QRCode(document.getElementById("qrcode"), {
+				width: 200,
+				height: 200
+			});
+			if(status==0){
+				qrcode.makeCode("http://192.168.0.44:9000/netcourse/ordertest.html?userid=" + userInfo.user_id + "&cid="+idstr);
+				console.log("生成二维码");
+			}else{
+				qrcode.makeCode("http://192.168.0.44:9000/netcourse/ordertest.html?userid=" + userInfo.user_id + "&cids="+idstr);
+				
+			}
+			}
+		</script>
+
+	</body>
+
+</html>
