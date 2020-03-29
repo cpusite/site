@@ -218,13 +218,13 @@ html,body{
  /* Box.*/
 .styled-checkbox + label:before {
     position: relative;
-    top: -7px;
+    top: -1px;
     content: '';
     margin-right: 16px;
     display: inline-block;
     vertical-align: text-top;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: transparent;
     border: 1px solid #ebebeb;
     border-radius: 5px;
@@ -243,18 +243,18 @@ html,body{
 .styled-checkbox:checked + label:after {
     content: '';
     position: absolute;
-    left: 11px;
-    top: 11px;
-    background: #26d9b3;
+    left: 8px;
+    top: 12px;
+    background: #1890ff;
     width: 2px;
     height: 2px;
     box-shadow: 
-      2px 0 0 #26d9b3,
-      4px 0 0 #26d9b3,
-      4px -2px 0 #26d9b3,
-      4px -4px 0 #26d9b3,
-      4px -6px 0 #26d9b3,
-      4px -8px 0 #26d9b3;
+      2px 0 0 #1890ff,
+      4px 0 0 #1890ff,
+      4px -2px 0 #1890ff,
+      4px -4px 0 #1890ff,
+      4px -6px 0 #1890ff,
+      4px -8px 0 #1890ff;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
@@ -311,7 +311,7 @@ html,body{
     font-size:16px;
     font-family: "CircularStd-Book";
     max-width: 265px;
-    margin: 34px auto;
+    margin: 34px auto 0;
     text-align: center;
 }
 .signin-footer p>a{
@@ -430,4 +430,34 @@ html,body{
 	border:1px solid #1c7cf8;
 	border-radius:50%;
 }
+.tagtext {
+    display: flex;
+    justify-content: space-evenly;
+}
+.tagtext li{
+        float: left;
+        margin-right: 24px;
+        line-height: 30px;
+        padding: 0 15px;
+}
+.tagtext li a{
+        color: #999;
+}
+.tagtext .active{
+        font-size: 18px;
+        color: #333333;
+        border-bottom: 3px solid #1890ff;
+}
+.tagtext .active a{
+        color: #333333;
+}
+@media only screen and (max-width: 767px) {
+    .m-t-15{
+        margin-top: 15px;
+    }
+    .left{
+       text-align: left !important;
+    }
+}
 /*========================Thank you=================
+

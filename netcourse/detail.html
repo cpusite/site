@@ -54,7 +54,7 @@
 				</div>
 			</div>
 				<div class="head2">
-					<div class="wrap">
+					<div class="wrap logoBox">
 						<div class="logo flt">
 							<a href="index.html"><img style="height: 70px;" src="static/picture/16.png"></a>
 						</div>
@@ -127,7 +127,7 @@
 										<a v-bind:href="item.id|getOrderHref" v-if="study==1">购买学习</a>
 										<a v-bind:href="item.id|getLoginHref" v-if="study==0">登录学习</a>
 										<a v-bind:href="item.id|getAllHref" v-if="study==2">开始学习</a>
-										<a v-bind:href="item.id|getAllHref" style="background: transparent;width: 100px;color: #8f979a;border-color: #8f979a;">试看</a>
+										<a v-bind:href="item.id|getAllHref" style="background: transparent;width: 100px;color: #8f979a;border-color: #8f979a;margin-left: 8px;">试看</a>
 									</div>
 									
 								</div>
@@ -142,7 +142,7 @@
 								<div class="web">
 									<div class="left_info" id="">
 										<div class="info_body">
-											<div class="info_p" v-html="item.description"></div>
+											<div class="info_p" style="line-height: 30px;" v-html="item.description"></div>
 										</div>
 										<div class="font_14 c_999">
 											<div style="padding-top: 50px;" class="font_16 c_333 font_b"> <span class="col"></span> 课程大纲
@@ -176,7 +176,9 @@
 									<ul>
 										<li>
 											<div class="top">
-												<div class="img1"> <img :src="item.jstx"> </div>
+												<div class="img1"> 
+													<img :src="item.jstx" onerror="photoImg">
+												</div>
 												<div class="web">
 													<h3 v-text="item.jsname">谢老师</h3>
 													<p>北京大学会计学本科</p>
@@ -194,7 +196,7 @@
 							<div class="clear"></div>
 						</div>
 					</div>
-					<div class="page page8">
+					<div class="page">
 						<img src="static/picture/bottomBg.jpg" style="width: 100%;"/>
 					</div>
 				</div>
@@ -226,6 +228,7 @@
 					item: {},
 					spList: [],
 					study: "",
+					photoImg: 'static/image/photo.png'
 				},
 				created: function() {
 					this.getLM();

@@ -17,6 +17,7 @@
 		<script type="text/javascript" src="static/js/jquerysession.js"></script>
 		<script type="text/javascript" src="static/js/jquery.params.js"></script>
 		<script type="text/javascript" src="static/js/common.js"></script>
+		<link rel="stylesheet" href="static/css/login/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="static/css/animate.css">
 		<link rel="stylesheet" type="text/css" href="static/css/global.css">
 		<link rel="stylesheet" type="text/css" href="static/css/style.css">
@@ -103,15 +104,15 @@
 		<!--class="animated fast" data-animation="fadeInDown"-->
 		<div class="mainer" id="grzx">
 			<div class="page_list">
-				<div class="page page3">
+				<div class="page page11">
 					<div class="wrap">
-						<div class="course_hot" style="float: left;">
+						<div class="course_hot col-sm-3">
 							<div class="course_hot_box">
 								<div class="tit">
 									<h3>个人中心</h3>
 								</div>
 
-								<div class="course_item" style="height:800px">
+								<div class="course_item">
 									<dl>
 										<dt>我的课程</dt>
 										<dd>
@@ -127,16 +128,19 @@
 								</div>
 							</div>
 						</div>
-						<div class="course_item" style="float: right;">
+						<div class="course_item course_item2 col-sm-9 lsjs ">
+							<div class="tit"><h3 style="padding: 0;"><span>个人信息</span></h3></div>
 							<div class="cus01">
 								<div class="cusImg">
 									<img src="http://192.168.0.37:9091/files/wangxin_TIM截图20190306152620.png" title="更换头像" />
 								</div>
 								<div class="cusName">
 									<p title="用户名称" id="username" v-text="userinfo.nick_name">阿牛</p>
-									<span title="分众传媒有限公司">用户类型：{{userinfo.role_name}}</span>
+									<!-- 用户类型： -->
+									<span title="分众传媒有限公司">{{userinfo.role_name}}</span>
 								</div>
 							</div>
+							<div class="tit"><h3 style="padding: 0;"><span>我的课程</span></h3></div>
 							<ul style="padding-top: 20px;">
 								<li v-for="(course, idx) in list" :key="idx">
 									<a v-bind:href="course.id|getTitleHref">
@@ -165,8 +169,7 @@
 						<div class="clear"></div>
 					</div>
 				</div>
-				<div class="ht100"></div>
-				<div class="page page8">
+				<div class="page">
 					<img src="static/picture/bottomBg.jpg" style="width: 100%;"/>
 				</div>
 			</div>
@@ -190,7 +193,7 @@
 				color: #333333;
 				font-family: "microsoft yahei";
 				font-weight: 600;
-				padding: 15px 0px 5px 26px;
+				padding: 15px 15px 15px 26px;
 			}
 			
 			dd {
@@ -251,7 +254,8 @@
 			.cus01 {
 				height: 170px;
 				padding: 0px 20px;
-				border-bottom: 1px solid #000000;
+				display: flex;
+				/* border-bottom: 1px solid #000000; */
 			}
 			
 			.cusImg {

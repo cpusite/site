@@ -37,19 +37,18 @@
 					<div class="col-sm-12">
 						<div class="single-sign">
 							<div class="sign-content popup-in-content" style="padding: 21px 20px 40px;">
-								<div class="logo flt">
-									<a href="index.html"><img style="width: 200px;" src="static/picture/16.png"></a>
+								<div class="logo flt text-center">
+									<a href="index.html"><img style="height: 60px;" src="static/picture/16.png"></a>
 								</div>
-								<!-- nav-tabs nav-pills-->
-								<ul class="nav nav-tabs " role="tablist" style="width: 500px;padding-top: 20px;">
+								<!--nav nav-tabs nav-pills-->
+								<ul class="tagtext clearfix popup-in-txt" role="tablist" style="padding-top: 20px;">
 									<li role="presentation" class="active" id="dl">
-										<a href="#home" role="tab" data-toggle="tab" style="width:249px;text-align: center;">登录</a>
+										<a href="#home" role="tab" data-toggle="tab" >登录</a>
 									</li>
-									<li role="presentation" style="width:249px;text-align: center;" id="zc">
+									<li role="presentation" id="zc">
 										<a href="#profile" role="tab"  data-toggle="tab">注册</a>
 									</li>
 								</ul>
-
 								<!-- 面板区 -->
 								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane active" id="home">
@@ -123,13 +122,13 @@
 														<input type="text" class="form-control" id="phone" placeholder="请输入手机号">
 													</div>
 
-													<div class="form-group">
+													<div class="form-group clearfix">
 														<div><label for="signin_form">验证码</label></div>
-														<div class="col-sm-9" style="padding-left: 0px;">
+														<div class="col-sm-9 col-xs-12" style="padding-left: 0px;padding-right: 0px;">
 															<input type="text" class="form-control" id="vscode" placeholder="请输入验证码">
 														</div>
-														<div class="col-sm-3" style="padding-right: 0px;padding-left: 0px;">
-															<button class="btn" :disabled="disabled" @click="sendCode" 
+														<div class="col-sm-3 left" style="padding-right: 0px;padding-left: 0px;text-align: right;">
+															<button class="btn m-t-15" :disabled="disabled" @click="sendCode" 
 															style="padding: 6px 12px;background: #1890ff;color:#fff;border-radius: 6px;
 															">获取验证码</button>
 														</div>
@@ -155,11 +154,11 @@
 															<label for="signin_form">选择所在区域和学校</label>
 														</div>
 
-														<div class="col-sm-4" style="padding-left: 0px;">
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
 															<select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict')" class="form-control "></select>&nbsp;&nbsp;</div>
-														<div class="col-sm-4">
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
 															<select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict')" class="form-control"></select>&nbsp;&nbsp;;</div>
-														<div class="col-sm-4">
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
 															<span id="seachdistrict_div"><select id="seachdistrict" name="seachdistrict"  onChange="changeXQ(this.value,'seachschool','seachschool')"  class="form-control"></select></span></div>
 
 													</div>
@@ -168,9 +167,10 @@
 															<div class="form-group">
 																<div>
 																	<label for="signin_form">学校和班级</label></div>
-																<div class="col-sm-6" style="padding-left: 0px;">
+																<div class="col-sm-6 col-xs-12" style="padding-left: 0px;margin-bottom: 15px;">
 																	<input type="text" class="form-control " id="school" placeholder="输入学校名称"></div>
-																<div class="col-sm-6"><input type="text" class="form-control" id="className" placeholder="输入班级名称"></div>
+																<div class="col-sm-6 col-xs-12" style="padding-left: 0px;">
+																	<input type="text" class="form-control" id="className" placeholder="输入班级名称"></div>
 															</div>
 														</div>
 													</div>
@@ -190,12 +190,8 @@
 												</form>
 												<!--/form -->
 											</div>
-											<div class="form-group">
-												<div id="mpanel2" style="top: 50px;">
-												</div>
-											</div>
 											<!--/.signin-form -->
-											<div class="signin-footer" style="padding-top:50px">
+											<div class="signin-footer" style="padding-top:20px">
 												<button type="button" id="signinButton" onclick="zc()" class="btn signin_btn" data-toggle="modal" data-target=".signin_modal">
 											注册
 										</button>

@@ -1,4 +1,4 @@
-var requestUrl="http://180.76.175.233/api";
+var requestUrl="http://192.168.0.50";
 function layout() {
 	$.session.remove('user');
 	window.location.href = "index.html";
